@@ -35,5 +35,6 @@ public class hello_world {
 
         System.out.println("Circumference: " + circumference);
         System.out.println("Area: " + area);
+        System.out.println("hi");
     }
 }
