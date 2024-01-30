@@ -1,42 +1,43 @@
 package test;
 
 import java.util.Scanner;
+import java.util.Stack;
 
-public class hello_world {
-    private static final double PI = 3.14;
-    private final double radius;
+class Circle {
+    private double radius;
 
-    public hello_world(double radius) {
+    public Circle(double radius) {
         this.radius = radius;
     }
 
-    public double getCircumference() {
-        return 2 * PI * radius;
+    public double getRadius() {
+        return radius;
     }
 
     public double getArea() {
-        return PI * radius * radius;
+        return Math.PI * radius * radius;
     }
+}
 
+public class hello_world {
     public static void main(String[] args) {
-        System.out.println("------------------------------------------------------------");
-        System.out.println("CircleCalc v1.0");
-        System.out.println();
-        System.out.println("Calculates and prints information for a user-supplied radius");
-        System.out.println("------------------------------------------------------------");
-        System.out.print("Enter the circle's radius: ");
-        
-        Scanner in = new Scanner(System.in);
-        hello_world c = new hello_world(in.nextDouble());
+        Scanner scanner = new Scanner(System.in);
+        Stack<Circle> circleStack = new Stack<>();
 
-        // Compute and print the circumference and area of the circle
-        double circumference = c.getCircumference();
-        double area = c.getArea();
+        System.out.println("Enter the number of circles:");
+        int numCircles = scanner.nextInt();
 
-        System.out.println("Circumference: " + circumference);
-        System.out.println("Area: " + area);
-        System.out.println("hi");
-        System.out.println("hi");
+        for (int i = 0; i < numCircles; i++) {
+            System.out.print("Enter the radius of circle " + (i + 1) + ": ");
+            double radius = scanner.nextDouble();
+            circleStack.push(new Circle(radius));
+        }
 
+        System.out.println("\nCalculating areas of circles using stack:");
+        while (!circleStack.isEmpty()) {
+            Circle circle = circleStack.pop();
+            double area = circle.getArea();
+            System.out.println("Area of circle with radius " + circle.getRadius() + ": " + area);
+        }
     }
 }
