@@ -8,7 +8,7 @@ import java.util.List;
 public class ok {
 
 public static void main(String[] args) {
-// TODO Auto-generated method stub
+// TODO Auto-generated method stubdsa
 List<Integer> myList = new ArrayList<>();
 Scanner sc = new Scanner(System.in);
 boolean a=true;
